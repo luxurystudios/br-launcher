@@ -36,7 +36,7 @@ public class LoaderActivity extends AppCompatActivity {
 
     public void startDownload() {
         folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        String url = "www.luxrussia.online/black-cache.7z";
+        String url = "https://huggingface.co/datasets/LuxuryStudios/br-cache/resolve/main/black-cache.7z";
         createDownloadTask(url, folder.getPath()).start();
     }
 
