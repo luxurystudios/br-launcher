@@ -9,7 +9,7 @@ jobs:
         with: { distribution: temurin, java-version: 11 }
       - uses: nttld/setup-ndk@v1
         id: ndk
-        with: { ndk-version: r18b }
+        with: { ndk-version: r17c }
       - name: Compilar JNI (libsamp.so)
         run: |
           cd "Jni source"
