@@ -22,7 +22,7 @@ jobs:
           "${{ steps.ndk.outputs.ndk-path }}/ndk-build" -j4
           cd ..
           mkdir -p app/jniLibs/armeabi-v7a
-          cp "Jni source/libs/armeabi-v7a/libsamp.so" app/jniLibs/armeabi-v7a/
+          cp -v "Jni source/libs/armeabi-v7a/"*.so app/jniLibs/armeabi-v7a/
       - name: Build APK
         run: chmod +x gradlew && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
