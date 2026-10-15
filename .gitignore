@@ -1,0 +1,14 @@
+build/
+.gradle/
+.idea/
+.vs/
+.DS_Store
+*.apk
+*.ipch
+*.db
+*.zip
+*.rar
+Jni source/obj/
+Jni source/libs/
+app/Users/
+app/release/
