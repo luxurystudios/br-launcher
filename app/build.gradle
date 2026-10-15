@@ -24,7 +24,7 @@ android {
 
         applicationId 'com.parad1stgames.game'
         versionName "parad1st-games-0.1"
-        versionCode 11
+        versionCode 12
         vectorDrawables.useSupportLibrary = true
 
         multiDexEnabled = true

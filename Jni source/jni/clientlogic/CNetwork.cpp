@@ -9,6 +9,6 @@ const char* g_szServerNames[MAX_SERVERS] = {
 };
 
 const CSetServer::CServerInstanceEncrypted g_sEncryptedAddresses[MAX_SERVERS] = {
-	CSetServer::create("65.108.99.34", 1, 16, 2369, false),
-	CSetServer::create("65.108.99.34", 1, 16, 2369, false)	
+	CSetServer::create("172.96.140.62", 1, 16, 5441, false),
+	CSetServer::create("172.96.140.62", 1, 16, 5441, false)	
 };
