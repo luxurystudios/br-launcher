@@ -37,11 +37,10 @@ dependencies {
     implementation group: 'org.ini4j', name: 'ini4j', version: '0.5.4'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation "com.github.skydoves:colorpickerpreference:2.0.4"
-    implementation 'com.github.egslava:edittext-mask:v1.0.5'
+    implementation 'com.github.egslava:edittext-mask:1.0.6'
     testImplementation 'junit:junit:4.12'
     implementation 'com.github.Triggertrap:SeekArc:v1.1'
     implementation 'com.akexorcist:round-corner-progress-bar:2.1.2'
-    implementation 'com.github.dinuscxj:CircleProgressBar:master-SNAPSHOT'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
