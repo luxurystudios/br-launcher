@@ -9,10 +9,12 @@ jobs:
         with: { distribution: temurin, java-version: 11 }
       - uses: nttld/setup-ndk@v1
         id: ndk
-        with: { ndk-version: r21e }
+        with: { ndk-version: r18b }
       - name: Compilar JNI (libsamp.so)
         run: |
-          ${{ steps.ndk.outputs.ndk-path }}/ndk-build -C "Jni source"
+          cd "Jni source"
+          "$ANDROID_NDK_HOME/ndk-build" -j4
+          cd ..
           mkdir -p app/jniLibs/armeabi-v7a
           cp "Jni source/libs/armeabi-v7a/libsamp.so" app/jniLibs/armeabi-v7a/
       - name: Build APK
@@ -21,4 +23,3 @@ jobs:
         with:
           name: launcher-apk
           path: app/build/outputs/apk/debug/*.apk
-
