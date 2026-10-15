@@ -4,6 +4,15 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+            storePassword "luxurystudios.dev2026"
+            keyAlias "androiddebugkey"
+            keyPassword "luxurystudios.dev2026"
+        }
+    }
+
     //compileSdkVersion 33
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
@@ -15,7 +24,7 @@ android {
 
         applicationId 'com.parad1stgames.game'
         versionName "parad1st-games-0.1"
-        versionCode 10
+        versionCode 11
         vectorDrawables.useSupportLibrary = true
 
         multiDexEnabled = true

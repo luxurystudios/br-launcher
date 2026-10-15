@@ -70,7 +70,7 @@ public class LoaderActivity extends AppCompatActivity {
                     if (i <= 0) continue;
                     String rel = line.substring(0, i);
                     long size = Long.parseLong(line.substring(i + 1).trim());
-                    File f = new File(root, rel);
+                    File f = new File(root, local(rel));
                     if (f.isFile() && f.length() == size) continue; // ya está completo
                     if (f.exists()) f.delete(); // tamaño distinto: rehacer
                     paths.add(rel);
@@ -124,7 +124,7 @@ public class LoaderActivity extends AppCompatActivity {
         List<BaseDownloadTask> tasks = new ArrayList<>();
         for (int i = 0; i < totalFiles; i++) {
             String rel = paths.get(i);
-            File f = new File(root, rel);
+            File f = new File(root, local(rel));
             f.getParentFile().mkdirs();
             tasks.add(FileDownloader.getImpl().create(BASE + encodePath(rel))
                     .setPath(f.getAbsolutePath(), false)
@@ -137,6 +137,8 @@ public class LoaderActivity extends AppCompatActivity {
         qs.downloadTogether(tasks);
         qs.start();
     }
+
+    private static String local(String rel) { return rel.replaceFirst("^BlackRussia/", "LUXRUSSIA/"); }
 
     private static String encodePath(String rel) {
         String[] parts = rel.split("/");
