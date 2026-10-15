@@ -14,6 +14,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libncurses5 libtinfo5
+      - name: Arreglar mayusculas de includes
+        run: bash fixcase.sh
       - name: Compilar JNI (libsamp.so)
         run: |
           cd "Jni source"
