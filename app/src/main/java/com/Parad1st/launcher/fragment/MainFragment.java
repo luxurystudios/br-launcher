@@ -90,7 +90,7 @@ public class MainFragment extends Fragment {
                 t.schedule(new TimerTask(){
                    @Override
                    public void run() {
-                       startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://discrord.com/")));
+                       startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://discord.gg/hv9dJ8JvSr")));
                    }
                 }, 200L);
             }
