@@ -1,0 +1,24 @@
+name: Build APK
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 11 }
+      - uses: nttld/setup-ndk@v1
+        id: ndk
+        with: { ndk-version: r21e }
+      - name: Compilar JNI (libsamp.so)
+        run: |
+          ${{ steps.ndk.outputs.ndk-path }}/ndk-build -C "Jni source"
+          mkdir -p app/jniLibs/armeabi-v7a
+          cp "Jni source/libs/armeabi-v7a/libsamp.so" app/jniLibs/armeabi-v7a/
+      - name: Build APK
+        run: chmod +x gradlew && ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: launcher-apk
+          path: app/build/outputs/apk/debug/*.apk
+
