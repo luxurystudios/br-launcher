@@ -2,7 +2,7 @@ name: Build APK
 on: [push, workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -13,11 +13,7 @@ jobs:
       - name: Instalar libtinfo5
         run: |
           sudo apt-get update
-          sudo apt-get install -y libncurses5 libtinfo5 || {
-            wget -q http://archive.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb
-            sudo dpkg -i libtinfo5_6.3-2ubuntu0.1_amd64.deb
-          }
-          ldconfig -p | grep tinfo
+          sudo apt-get install -y libncurses5 libtinfo5
       - name: Compilar JNI (libsamp.so)
         run: |
           cd "Jni source"
