@@ -10,6 +10,14 @@ jobs:
       - uses: nttld/setup-ndk@v1
         id: ndk
         with: { ndk-version: r17c }
+      - name: Instalar libtinfo5
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libncurses5 libtinfo5 || {
+            wget -q http://archive.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb
+            sudo dpkg -i libtinfo5_6.3-2ubuntu0.1_amd64.deb
+          }
+          ldconfig -p | grep tinfo
       - name: Compilar JNI (libsamp.so)
         run: |
           cd "Jni source"
