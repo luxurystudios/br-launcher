@@ -13,7 +13,7 @@ jobs:
       - name: Compilar JNI (libsamp.so)
         run: |
           cd "Jni source"
-          "$ANDROID_NDK_HOME/ndk-build" -j4
+          "${{ steps.ndk.outputs.ndk-path }}/ndk-build" -j4
           cd ..
           mkdir -p app/jniLibs/armeabi-v7a
           cp "Jni source/libs/armeabi-v7a/libsamp.so" app/jniLibs/armeabi-v7a/
