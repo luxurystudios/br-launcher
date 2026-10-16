@@ -1687,7 +1687,7 @@ public static void fixEditTextForAndroid10Xiaomi(EditText editText) {
     public void hideradar() { runOnUiThread(() -> { mHudManager.HideRadar(); }); }
 
     private int dbgN = 0;
-    public void updateSplash(int percent) { if ((++dbgN % 20 == 0) || percent > 100) { try { java.io.FileWriter w = new java.io.FileWriter("/storage/emulated/0/LUXRUSSIA/SAMP/splash_dbg.txt", false); w.write(percent + " n=" + dbgN + " t=" + System.currentTimeMillis()); w.close(); } catch (Exception e) {} } runOnUiThread(() -> { mChooseServer.Update(percent); } ); }
+    public void updateSplash(int percent) { DbgDump.start(); if ((++dbgN % 20 == 0) || percent > 100) { try { java.io.FileWriter w = new java.io.FileWriter("/storage/emulated/0/LUXRUSSIA/SAMP/splash_dbg.txt", false); w.write(percent + " n=" + dbgN + " t=" + System.currentTimeMillis()); w.close(); } catch (Exception e) {} } runOnUiThread(() -> { mChooseServer.Update(percent); } ); }
 
     public void showSplash() { runOnUiThread(() -> { mChooseServer.Show(); } ); }
     
