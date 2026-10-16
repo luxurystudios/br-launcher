@@ -71,7 +71,6 @@ public class LoaderActivity extends AppCompatActivity {
                     String rel = line.substring(0, i);
                     long size = Long.parseLong(line.substring(i + 1).trim());
                     File f = new File(root, local(rel));
-                    if (f.exists() && (rel.endsWith("crash_log.log") || rel.endsWith("samp_log.txt") || rel.endsWith("settings.ini"))) continue;
                     if (f.isFile() && f.length() == size) continue; // ya está completo
                     if (f.exists()) f.delete(); // tamaño distinto: rehacer
                     paths.add(rel);
